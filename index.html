@@ -27,9 +27,19 @@
         .content {
             position: absolute;
             width: 100%;
-            top: 40%;
+            top: 50%;
             transform: translate(0, -50%);
             text-align: center;
+        }
+
+        .day {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+
+        .day b {
+            color: rgb(253, 99, 125);
         }
         
         .timer {
@@ -41,15 +51,32 @@
         .timer b {
             color: rgb(253, 99, 125);
         }
+
+        .all_second {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+
+        .all_second b {
+            color: rgb(253, 99, 125);
+        }
     </style>
 </head>
 
 <body>
     <div class="content">
-        <h2>宝贝，我们已经在一起了</h2>
+	    <h2>宝宝诶</h2>
+	    <div class="day">
+            <b>2015</b> 年 <b>7</b> 月 <b>29</b> 日 
+        </div>
+        <h2>我们在一起了</h2>
+        <h2>到现在已经</h2>
         <div class="timer">
             <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
         </div>
+        <div class="all_second">在这 <b id="all_s"></b> 秒的时间里，我过得很开心</div>
+        <h2>谢谢你的陪伴</h2>
     </div>
 
     <script>
@@ -69,10 +96,14 @@
             if (s < 10) {
                 s = "0" + s;
             }
+
+            var all_s = ~~(t / 1000);
+
             document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
             document.getElementById('h').innerHTML = h;
             document.getElementById('m').innerHTML = m;
             document.getElementById('s').innerHTML = s;
+            document.getElementById('all_s').innerHTML = all_s;
         }
         timer();
         setInterval(timer, 1000);
